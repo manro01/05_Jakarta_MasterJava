@@ -1,0 +1,60 @@
+Se va a comenzar a ver Jakarta lo que es JeveEE pero libre, como es un tema muy extenso
+se va a divir en varias partes, se empieza con una introducción a http y abajo hay 
+una introducción a Jakarta EE 9
+
+//////////////////////////////////  HTTP ///////////////////////////////////////
+
+Http (hipertex transfer protocol)
+Es un protocolo de comunicación que permite la comunicacion entre un cliente y un 
+servidor, para compartir datos en diferentes formatos, como html, json, imágenes,
+videos, pdf, Excel etc. en la Worl Wide Web.
+
+Conceptos básicos
+Métodos de petición http
+    los más tipicos son Get y Post y pero son más, 
+        Get es cuando se hace una petición atraves de una URL, lo que se envie son vistos 
+            en la misma URL.
+        Post es cuando se envia contenido y datos por el request y estos van en el 
+            cuerpo del request, por ejemplo, un formulario, lo que se envie esta
+            enpaquetado dentro de la request.
+    Otros métodos que se van a ver son el DELETE, UPDATE, ETC.
+
+Cabecera Http de petición (request)
+    Permite enviar información adicional en el request, metada, como el navegador web, 
+    la ip, el host, etc. 
+Cabecera Http de respuesta (response)
+    Es la imnformación extra (metadata) que el servidor envia al cliente, por ejemplo
+    el contentype de la respuesta
+
+Código de estado de respuesta HTTP
+    Son los códigos de respueta http
+        El mas común es el ok o 200, 
+
+//////////////////////////////////  jakarta ///////////////////////////////////////
+
+Jakarta es lo que era JavaEE para pasar a ser libre
+Es un conjunto de especificaciones, parte de la plataforma Java, para desarollar y 
+ejecutar apliaciones web utilizando arquitecturas de N-capas que se despliegan en 
+un servidor de aplicaciones.
+
+Un ejemplo de una arquitectura por capas es un sito web que se forma por
+    Capa MVC es la vista de la página web
+    Capa servicio con EJB que son son objetos java transaccionales, o REST Services
+    Capa Datos que son repositorios, Objetos JPA u Objetos JDBC.
+
+Caracteristicas de Jakarta
+Componentes Web como los jsp o servlets
+Interoperabilidad
+Control de concurrencia
+Transaccionalidad con los ejb
+Persistencia JPA 3.0 objetos entity que estan relacionados
+Inyeccíon de dependencias CID 3.0
+EJB 4.0 son los objetos transaccionales que se pueden acceder de manera local o remota
+    es remoto, cuando un EJB esta alojado en otro servidor distinto a nuestra aplicación
+Comunicación Remota 
+Seguridad
+Eventos utilizando JMS (java mesaging service)
+Servicios de nombres y directorios JMDI
+Jax-WS SOAP
+Jax-RS REST
+
