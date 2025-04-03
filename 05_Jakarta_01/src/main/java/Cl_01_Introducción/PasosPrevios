@@ -1,0 +1,57 @@
+NOTA:tuve un problema al querer hacer clean and buil, al parecer no reconocia ser un proyecto
+    jakarta EE, le puse en reolve pero y cambio a jakarta pero crea que no funciona aún
+
+Se tiene que instalar tomcat 11, para eso
+    Descargarlo de la web, descomprimirlo y copiarlo
+    En linux lo pegue en opt
+    En windows aun no se
+    Editar el archivo tomcat-user.xml, que esta en la carpeta conf de tomcat
+        agregando como antepenultima linea <user username="admin" password="admin" roles="admin,manager-gui, manager-script "/>
+            (user y password se pueden aditar y poner lo que sea)
+
+EN el POM.XML 
+    Deespues de la linea <version>1.0</version> 
+        agregar si no esta o modificar <packaging>war</packaging>
+
+    Agregar las dependencias
+        jakarta.jakartaee-api
+        El maestro la agrego desde el repositorio org.aguzman.webapp.servlet pero no me sale
+            en netbeans (el usa intellij) pero encontre una que se llama igual y tiene los mismo datos
+            pero esta en el repositorio de Jakarta.platform
+            <dependency>
+                <groupId>jakarta.platform</groupId>
+                <artifactId>jakarta.jakartaee-api</artifactId>
+                <version>9.0.0</version>
+            </dependency>
+        A esta dependencia es muy importante agregarlo un scpoe provided, para que
+            lo provea el servidor de aplicaciones, en este caso tomcat
+            quedando así
+                <dependency>
+                    <groupId>jakarta.platform</groupId>
+                    <artifactId>jakarta.jakartaee-api</artifactId>
+                    <version>9.0.0</version>
+                    <scope>provided</scope>
+                </dependency>
+       
+        Agregar los plugins
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.1</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.tomcat.maven</groupId>
+                    <artifactId>tomcat7-maven-plugin</artifactId> 
+                    <version>2.2</version>
+                    <configuration>
+                        <url>http://localhost:8080/manger/text</url>
+                        <username>admin</username>
+                        <password>admin</password>
+                    </configuration>
+                </plugin>
+            </plugins>
+                //NOTA: el plugin de tomcat7 no hace referencia a la version 7 de tomcat si no 
+                //  que es la 7ma versión del plugin, pero funciona con tomcat 11
+                //NOTA: los datos de username y admin son los que se pusieron en el 
+                //  archivo de configuración de tomcat
