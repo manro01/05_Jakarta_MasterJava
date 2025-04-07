@@ -1,0 +1,14 @@
+Servlet 
+Es una clase y objeto de Java que se usa para implementar una página web dinamica
+con características HTTP de petición y reespuesta.
+
+Estan contenidos dentro del contenedor web y este les da un ciclo de vida.
+Estan mapedados a rutas url
+
+funcionamiento
+Se tienen uncliente que pude ser un navegador web, un cliente http o incluso otro
+    servlet, se muestra la información en pantalla y el usuario interactua con la
+    pantalla haciendo una petición, se envia la petición al servidor quien los procesa y resuelve 
+    y regresa la respuesta al cliente, en forma del objeto.
+
+

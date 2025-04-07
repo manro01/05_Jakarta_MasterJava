@@ -55,3 +55,24 @@ EN el POM.XML
                 //  que es la 7ma versión del plugin, pero funciona con tomcat 11
                 //NOTA: los datos de username y admin son los que se pusieron en el 
                 //  archivo de configuración de tomcat
+
+        Agregar el plugin 
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+            ////nota este plugin no tiene groupId porque es oficial de maven y no lo necesita
+
+Pasos previos en netbeans, como el ejemplo lo hizo en intellij tuve que ver como se hacia en netbeans
+    Activar el servidor tomcat, en tool --> servers --> add server, elegir tomcat puede que pida algunas
+        configuraciones como nombre de usuario y contraseña de tomcat, esas se confifuraron en 
+        tomcat, ADEMAS ME PIDIO una contraseña master para netbeans, puese admin.
+    En el proyecto en propiedades en run --> server hay que elegir el servidor de apache
+
+NOTA: en el proyecto no tenua el archivo index.html y este es necesario para la ejecución, lo trate de
+    poner en u paquete llamado webapp (el paquete lo puse en source packaking), se supone que así es 
+    como debe ir pero no funciono, entonces lo puse en Web pages (donde esta META-inf) en la ruta de 
+    archivos src/main/webapp/ y ahí si funciona, no se si tendre problemas más adelante.
