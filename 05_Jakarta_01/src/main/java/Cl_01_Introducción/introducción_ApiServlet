@@ -11,4 +11,16 @@ Se tienen uncliente que pude ser un navegador web, un cliente http o incluso otr
     pantalla haciendo una petición, se envia la petición al servidor quien los procesa y resuelve 
     y regresa la respuesta al cliente, en forma del objeto.
 
+Los servlet que manejamos heredan de HttpServlet que es donde estan los métodos que podemos usar
+A su vez HttpServlet implementa las interfaces Servlet, ServletConfig, Serializable
+    en Servlet hay dos métodos que podemos implementar que son init(que permite inicar algunas configuraciones
+        por ejemplo, un pool de conexiones, o un repositorio, etc.) y destroy (que permite eliminar un recurso)
+        
+
+NOTA MUY MUY IMPORTANTE: Los servlets son objetos de acceso general, es decir
+    todas las personas que accedan al servlet veran lo mismo, es por eso que los 
+    servlet, NO DEBEN tener variables de estado, es decir variables que guarden 
+    algun dato o configuración del usuario, porque entonces un usuario puede
+    cambiar lo que todos ven.
+
 

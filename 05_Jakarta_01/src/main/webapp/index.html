@@ -11,5 +11,13 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
     </head>
     <body>
         <h1>saluditos desde tomcat</h1>
+        <a href="/parametros/url-get?usuario=pepe">Enviando parámetro usuario</a>
+        <!-- 
+            para enviar un parametro por url se pone la url del servlet que va a recibir el parámetro
+            y se agrega un ? seguido del nombre del valor que se va a enviar seguido de un =
+            seguido del valor a enviar, url?nombreValor=valor
+            El servlet debe estar configurado para recibir el parámetro, teniendo un método doGet y 
+            una variable que guarde el valor que se va a recibir, ver ParametroGetServlet.java para info
+        -->
     </body>
 </html>

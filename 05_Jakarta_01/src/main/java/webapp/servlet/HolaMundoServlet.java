@@ -29,20 +29,20 @@ public class HolaMundoServlet extends HttpServlet
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
     {
         response.setContentType("text/html");
-        PrintWriter out= response.getWriter();
+        PrintWriter out = response.getWriter();
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println(" <head>");
+        out.println("     <Title>Hola desde Servlet</Title>");
+        out.println("     <meta charset=\"UTF-8\">  ");
+        out.println(" </head>");
+        out.println(" <body>");
+        out.println("     <h1>Holas que vienen y van en servlet</h1>");
+        out.println(" </body>");
+        out.println("</html>");
+        out.close(); //est lo agregue sin probar
+        //si no cerramos el recurso no hay problema se cierra solo, pero por buena prácica se cierra
         
-        out.print("<!Doctype html>");
-        out.print("<html>");
-        out.print(" <body>");
-        out.print("     <head>");
-        out.print("         <meta charset=\"\"UTF-8 >");
-        out.print("         <Title>Hola mundo Servlet</Title>");
-        out.print("     </head>");
-        out.print("     <body>");
-        out.print("         <HOlas que vienen y van en servlet>");
-        out.print("     </body>");
-        out.print(" </body>");
-        out.print("</html>");
     }
             
 }
