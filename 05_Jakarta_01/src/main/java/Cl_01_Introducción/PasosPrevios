@@ -72,7 +72,7 @@ Pasos previos en netbeans, como el ejemplo lo hizo en intellij tuve que ver como
         tomcat, ADEMAS ME PIDIO una contraseña master para netbeans, puese admin.
     En el proyecto en propiedades en run --> server hay que elegir el servidor de apache
 
-NOTA: en el proyecto no tenua el archivo index.html y este es necesario para la ejecución, lo trate de
+NOTA: en el proyecto no tenia el archivo index.html y este es necesario para la ejecución, lo trate de
     poner en u paquete llamado webapp (el paquete lo puse en source packaking), se supone que así es 
     como debe ir pero no funciono, entonces lo puse en Web pages (donde esta META-inf) en la ruta de 
     archivos src/main/webapp/ y ahí si funciona, no se si tendre problemas más adelante.
