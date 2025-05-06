@@ -11,6 +11,8 @@
  * La clase debe tener métodos para manejar los resonse
  * 
  * 
+ * NOTA: tal como quedo el ejercicio este ya no se uso
+ * 
  */
 package webapp.servlet;
 
