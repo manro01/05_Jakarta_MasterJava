@@ -17,13 +17,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 //esta linea la genero atuomáticamente, hasta ahora solo ponia @WebServlet("/registro")
 @WebServlet(name = "FormServlet", urlPatterns = {"/registro"})
-public class FormServlet extends HttpServlet 
+public class Servlet01_Form extends HttpServlet 
 {
 
     @Override
@@ -48,7 +46,7 @@ public class FormServlet extends HttpServlet
             out.println("   <title>Resultado del form</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("   <h1>Datos ingresados</h1>");
+            out.println("   <h1>Datos ingresados (sin validar)</h1>");
             out.println("       <ul>");
             out.println("           <li>Username: " + username + "</li>");
             out.println("           <li>Password: " + password + "</li>");
