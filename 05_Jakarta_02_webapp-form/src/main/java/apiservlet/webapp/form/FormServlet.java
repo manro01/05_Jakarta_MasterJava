@@ -17,6 +17,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 //esta linea la genero atuomáticamente, hasta ahora solo ponia @WebServlet("/registro")
 @WebServlet(name = "FormServlet", urlPatterns = {"/registro"})
@@ -31,6 +34,12 @@ public class FormServlet extends HttpServlet
         String username= req.getParameter("username");
         String password= req.getParameter("password");
         String email= req.getParameter("email");
+        String pais= req.getParameter("pais");
+        String[] lenguajes= req.getParameterValues("lenguajes");
+        String[] roles= req.getParameterValues("roles");
+        String idioma= req.getParameter("idioma");
+        String habilitar= req.getParameter("habilitar");
+        String secreto= req.getParameter("secreto");
         
         try (PrintWriter out = res.getWriter()) {
             out.println("<!DOCTYPE html>");
@@ -44,6 +53,27 @@ public class FormServlet extends HttpServlet
             out.println("           <li>Username: " + username + "</li>");
             out.println("           <li>Password: " + password + "</li>");
             out.println("           <li>Email: " + email + "</li>");
+            out.println("           <li>País: " + pais + "</li>");
+            
+            out.println("           <li>Lenguajes:");
+            out.println("               <ul>");
+            Arrays.asList(lenguajes).forEach(lenguaje -> {out.println("               <li>" + lenguaje + "</li>");});
+            out.println("                   <ll>");
+            out.println("               </ul>");
+            out.println("           </li>");
+            
+            out.println("           <li>Roles:");
+            out.println("               <ul>");
+            Arrays.asList(roles).forEach(rol -> {out.println("               <li>" + rol + "</li>");});
+            out.println("                   <ll>");
+            out.println("               </ul>");
+            out.println("           </li>");
+            
+            out.println("           <li>Idioma seleccionado: " + idioma + "</li>");
+            out.println("           <li>Habilitada o deshabiitada: " + habilitar + "</li>");
+            out.println("           <li>Valor de campo ocuto: " + secreto + "</li>");
+            
+            
             out.println("       </ul>");
             out.println("   </body>");
             out.println("</html>");
