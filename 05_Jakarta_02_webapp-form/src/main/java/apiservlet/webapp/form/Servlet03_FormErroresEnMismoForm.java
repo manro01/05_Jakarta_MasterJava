@@ -1,9 +1,11 @@
 /**
- * Se va validar el forma, una vez que se llene el form y se envie, el servlet
- * recibe los datos y los valida, en caso de errores, los muestra aquí.
+ * Este Servlet va a recibir los datos del form un en caso de ser correcto los muestran
+ *  los datos en pantalla, en caso de que existan errores los regresa al formulario
+ *  que ahora es un jsp
  */
 package apiservlet.webapp.form;
 
+import jakarta.servlet.ServletException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.annotation.WebServlet;
@@ -14,16 +16,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- *
- * @author manuel
- */
-@WebServlet(name = "Servlet02_FormValidate", urlPatterns = {"/formValidate"})
-public class Servlet02_FormValidate extends HttpServlet 
+@WebServlet(name = "servlet03_FormErroresEnMismoForm", urlPatterns = {"/formErroresEnMismoForm"})
+public class Servlet03_FormErroresEnMismoForm extends HttpServlet 
 {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException
+    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException
     {
         res.setContentType("text/html;charset=UTF-8");
         
@@ -75,20 +73,21 @@ public class Servlet02_FormValidate extends HttpServlet
         //  no hay problema
         //tampoco se valido el campo oculto, pues el usuario non interactua con el.
         
-        try (PrintWriter out = res.getWriter()) 
+        ///si los erroees estan vacios se muestran los valores
+        if (errores.isEmpty())
         {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("   <head>");
-            out.println("   <title>Resultado del form</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("   <h1>Datos ingresados (para validar)</h1>");
-            out.println("       <ul>");
-            
-            ///si los erroees estan vacios se muestran los valores
-            if (errores.isEmpty()) 
+            try (PrintWriter out = res.getWriter()) 
             {
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("   <head>");
+                out.println("   <title>Errores en el mismo form (Servlet_03)</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("   <h1>Los datos ingresados son: </h1>");
+                out.println("       <ul>");
+            
+            
                 out.println("           <li>Username: " + username + "</li>");
                 out.println("           <li>Password: " + password + "</li>");
                 out.println("           <li>Email: " + email + "</li>");
@@ -116,25 +115,28 @@ public class Servlet02_FormValidate extends HttpServlet
                 out.println("           <li>Habilitada o deshabilitada: " + habilitar + "</li>"); //Este es un aviso de estado, no es un error
                 out.println("           <li>Valor de campo ocuto: " + secreto + "</li>");
 
+            
+                out.println("       </ul>");
+            
+                out.print("<div>");
+                out.println("   <p><a href=\"/05_Jakarta_02_webapp-form/03_ValidacionDentroDelForm.jsp\">Regresar al formulario (03_ValidacionDentroDelForm.jsp))</a></p> ");
+                out.println("   <p><a href=\"/05_Jakarta_02_webapp-form/index.html\">Regresar al inicio</a></p> ");
+                out.print("</div>");
+            
+            
+                out.println("   </body>");
+                out.println("</html>");
+                
+                //se cambio para que en caso de que existan errores se mande llamar al jsp y por lo tanto
+                // ya no debe haber código html pues no se va a usar, todo el código html quedo en el caso 
+                // de que no existiera errores
             }
-            else // si hay errores se muestran los errores
-            {
-                errores.forEach(error -> {
-                    out.println("<li>" + error + "</li>");
-                });
-            }
-            
-            out.println("       </ul>");
-            
-            out.print("<div>");
-            out.println("   <p><a href=\"/05_Jakarta_02_webapp-form/02_FormularioConValidacion.html\">Regresar al formulario</a></p> ");
-            out.println("   <p><a href=\"/05_Jakarta_02_webapp-form/index.html\">Regresar al inicio</a></p> ");
-            out.print("</div>");
-            
-            
-            out.println("   </body>");
-            out.println("</html>");
+        }
+        else // si hay errores 
+        {
+            //se crea un atributo donde se van a guardar los errores
+            req.setAttribute("errores", errores);
+            getServletContext().getRequestDispatcher("/03_ValidacionDentroDelForm.jsp").forward(req, res);
         }
     }
-
 }
