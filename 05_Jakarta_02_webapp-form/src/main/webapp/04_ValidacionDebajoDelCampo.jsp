@@ -10,11 +10,12 @@
         que estar entre <% código %>
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="java.util.List"%>
+<%@page import="java.util.Map"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <% 
-    List<String> errores= (List<String>)request.getAttribute("errores");
+    Map<String, String> errores= (Map<String, String>)request.getAttribute("errores");
     //NOTAS
     //request es parte del servlet, por lo tanto viene integrado
     //getAttribute, agarra un atributo, para esto el atributo debe existir, en este caso erroes, lo definimos en el Servlet03
@@ -30,36 +31,37 @@
     <body>
         <h1>Llenar el formuario (04_ValidacionDebajoDelCampo.jsp): </h1>
         
-        <%
-            if(errores!=null && errores.size()>0)
-            {
-        %>
-        
-        <ul>
-            <%for(String error: errores) { %>
-            <li><%=error  %></li>  <!<!-- se puedo haber usado out.printl(error); -->
-            
-            <% } %>
-        </ul>
-        
-        <%
-        
-            }
-        %>
-        
-        <!<!-- recuerda que esto /formErroresEnMismoForm es la ruta que le dimos al Servlet04_ValidacionDebajoDelCampo-->
+        <!-- recuerda que esto /formErroresEnMismoForm es la ruta que le dimos al Servlet04_ValidacionDebajoDelCampo-->
         <form action="/05_Jakarta_02_webapp-form/validacionDebajoDelCampo" method="post">
             <div>
                 <label for="username">Username</label>
                 <div><input type="text" name="username" id="username"></div>
+                <%
+                if(errores!=null && errores.containsKey("username"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("username")+"</small>");
+                }
+                %>
             </div>
             <div>
                 <label for="password">Pasword</label>
                 <div><input type="password" name="password" id="password"></div>
+                <%
+                if(errores!=null && errores.containsKey("password"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("password")+"</small>");
+                }
+                %>
             </div>
             <div>
                 <label for="email">Email</label>
                 <div><input type="email" name="email" id="email"></div>
+                <%
+                if(errores!=null && errores.containsKey("email"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("email")+"</small>");
+                }
+                %>
             </div>
             
             <br>
@@ -77,6 +79,12 @@
                         <option value="ve">Venezuela</option>
                     </select>
                 </div>
+                <%
+                if(errores!=null && errores.containsKey("pais"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("pais")+"</small>");
+                }
+                %>
             </div>
             
             <br>
@@ -92,6 +100,12 @@
                         <option value="react">React</option>
                     </select>
                 </div>
+                <%
+                if(errores!=null && errores.containsKey("lenguajes"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("lenguajes")+"</small>");
+                }
+                %>
             </div>
             
             <br>
@@ -109,6 +123,12 @@
                     <input type="checkbox" name="roles" value="ROLE_MODERATOR">
                     <label>Moderador</label>
                 </div>
+                <%
+                if(errores!=null && errores.containsKey("roles"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("roles")+"</small>");
+                }
+                %>
             </div>
             
             <div>
@@ -125,6 +145,12 @@
                     <input type="radio" name="idioma" value="fr">
                     <label>Frances</label>
                 </div>
+                <%
+                if(errores!=null && errores.containsKey("idioma"))
+                {
+                    out.println("<small style='color:red;'>"+errores.get("idioma")+"</small>");
+                }
+                %>
             </div>
             
             <div>
