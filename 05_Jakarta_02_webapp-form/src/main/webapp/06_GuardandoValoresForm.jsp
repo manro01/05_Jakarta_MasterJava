@@ -77,13 +77,13 @@
                     <div class="col-sm-4">
                         <select name="pais" id="pais" class="form-select">
                             <option value="">-- Seleccionar --</option>
-                            <option value="es" value="${param.pais.equals("es")?"selected":""}">España</option>
-                            <option value="mx" value="${param.pais.equals("mx")?"selected":""}">México</option>
-                            <option value="cl" value="${param.pais.equals("cl")?"selected":""}">Chile</option>
-                            <option value="ar" value="${param.pais.equals("ar")?"selected":""}">Argentina</option>
-                            <option value="pe" value="${param.pais.equals("pe")?"selected":""}">Perú</option>
-                            <option value="co" value="${param.pais.equals("co")?"selected":""}">Colombia</option>
-                            <option value="ve" value="${param.pais.equals("ve")?"selected":""}">Venezuela</option>
+                            <option value="es" ${param.pais.equals("es")?"selected":""}>España</option>
+                            <option value="mx" ${param.pais.equals("mx")?"selected":""}>México</option>
+                            <option value="cl" ${param.pais.equals("cl")?"selected":""}>Chile</option>
+                            <option value="ar" ${param.pais.equals("ar")?"selected":""}>Argentina</option>
+                            <option value="pe" ${param.pais.equals("pe")?"selected":""}>Perú</option>
+                            <option value="co" ${param.pais.equals("co")?"selected":""}>Colombia</option>
+                            <option value="ve" ${param.pais.equals("ve")?"selected":""}>Venezuela</option>
                         </select>
                     </div>
                     <%
@@ -98,12 +98,12 @@
                     <label for="lenguajes" class="col-form-label col-sm-2">Lenguajes de programación</label>
                     <div class="col-sm-4">
                         <select name="lenguajes" id="lenguajes" multiple class="form-select">
-                            <option value="java">Java SE</option>
-                            <option value="jakarta">Jakarta EE9</option>
-                            <option value="spring">Spring Boot</option>
-                            <option value="js">Javascript</option>
-                            <option value="angular">Angular</option>
-                            <option value="react">React</option>
+                            <option value="java" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("java")).get()?"selected":"jaf"}>Java SE</option>
+                            <option value="jakarta" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("jakarta")).get()?"selected":""}>Jakarta EE9</option>
+                            <option value="spring" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("spring")).get()?"selected":""}>Spring Boot</option>
+                            <option value="js" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("js")).get()?"selected":""}>Javascript</option>
+                            <option value="angular" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("angular")).get()?"selected":""}>Angular</option>
+                            <option value="react" ${paramValues.lenguajes.stream().anyMatch(v->v.equals("react")).get()?"selected":""}>React</option>
                         </select>
                     </div>
                     <%
@@ -117,15 +117,15 @@
                 <div class="row mb-3">
                     <label class="col-form-label col-sm-2">Roles</label> 
                     <div class="form-check col-sm-3" >
-                        <input type="checkbox" name="roles" value="ROLE_ADMIN" class="form-check-input">
+                        <input type="checkbox" name="roles" value="ROLE_ADMIN" class="form-check-input" ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_ADMIN")).get()?"checked":""}>
                         <label class="form-label-check">Administrador</label>
                     </div>
                     <div class="form-check col-sm-3">
-                        <input type="checkbox" name="roles" value="ROLE_USER" class="form-check-input">
+                        <input type="checkbox" name="roles" value="ROLE_USER" class="form-check-input" ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_USER")).get()?"checked":""}>
                         <label class="form-label-check">Usuario</label>
                     </div>
                     <div class="form-check col-sm-3">
-                        <input type="checkbox" name="roles" value="ROLE_MODERATOR" class="form-check-input">
+                        <input type="checkbox" name="roles" value="ROLE_MODERATOR" class="form-check-input" ${paramValues.roles.stream().anyMatch(v->v.equals("ROLE_MODERATOR")).get()?"checked":""}>
                         <label class="form-label-check">Moderador</label>
                     </div>
                     <%
@@ -138,15 +138,15 @@
                 <div class="row mb-3">
                     <label class="col-form-label col-sm-2">Idiomas</label>
                     <div class="form-check col-sm-3">
-                        <input type="radio" name="idioma" value="es" class="form-check-input" value="${param.idioma.equals("es")?"checked":""}">
+                        <input type="radio" name="idioma" value="es" class="form-check-input" ${param.idioma.equals("es")?"checked":""}>
                         <label class="form-check-label">Español</label>
                     </div>
                     <div class="form-check col-sm-3">
-                        <input type="radio" name="idioma" value="en" class="form-check-input" value="${param.idioma.equals("en")?"checked":""}>
+                        <input type="radio" name="idioma" value="en" class="form-check-input" ${param.idioma.equals("en")?"checked":""}>
                         <label class="form-check-label">Ingles</label>
                     </div>
                     <div class="form-check col-sm-3">
-                        <input type="radio" name="idioma" value="fr" class="form-check-input" value="${param.idioma.equals("fr")?"checked":""}>
+                        <input type="radio" name="idioma" value="fr" class="form-check-input" ${param.idioma.equals("fr")?"checked":""}>
                         <label class="form-check-label">Frances</label>
                     </div>
                     <%
