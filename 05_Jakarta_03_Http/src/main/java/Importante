@@ -1,0 +1,8 @@
+Se van a tratar los cabeceros de http
+
+La primera parte, usa el servlet CabecerasHttpRequestServlet y la ruta de acceso es /cabeceras-request 
+    y un poco del index
+    En este ejemplo se mostraron los cabeceros del request
+
+La segunda parte usa el servlet ProductoXlsServlet y Producto, ProductoService, ProductoServiceImpl y 
+    va a mostrar como usar los cabeceros response y los va a exportar
