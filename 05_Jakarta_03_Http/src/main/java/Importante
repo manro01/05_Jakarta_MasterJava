@@ -5,4 +5,9 @@ La primera parte, usa el servlet CabecerasHttpRequestServlet y la ruta de acceso
     En este ejemplo se mostraron los cabeceros del request
 
 La segunda parte usa el servlet ProductoXlsServlet y Producto, ProductoService, ProductoServiceImpl y 
-    va a mostrar como usar los cabeceros response y los va a exportar
+    va a mostrar como usar los cabeceros response y los va a exportar a otros archivos
+    NOTA: en ProductoXlsServlet se vio como poner dos rutas a un servlet
+    
+    Se va a exportar a Json pero para esto se requiere una dependencia en el pom 
+        com.fasterxml.jackson.core:jackson-databind:2.12.3 esta version no estaba esta la 2.7.1-1
+    Se va a crear el servlet ProductoJasonServlet

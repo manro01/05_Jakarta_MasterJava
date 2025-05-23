@@ -1,0 +1,23 @@
+Nota la ruta que se configura como acceso a un servlet puede tener cualquier 
+    terminación y esto no se liga a su contenido, por ejemplo podemos poner 
+    las rutas ruta, ruta.html y ruta.xls a un revlet y todas pueden abrir una
+    pagina html o todas pueden descargar un archivo xls, lo que quiero decir es
+    que aquí va una ruta que puede tener cualquier caracter NO IMPLICA EL uso de un 
+    tipo de archivo.
+
+Algunos temas importantes que se tocaron
+
+01: configuración incial del proyecto 
+	pom.xml 
+	tomcat
+
+02: crar un form
+	usar doGet y doPost
+	usar Bootstrap
+	validar formulario
+	
+03: cabeceras html 
+	cabeceras request
+	cabeceras response
+		exportat a archivos externos
+	Dos rutas para el mismo servlet
