@@ -5,9 +5,30 @@ La primera parte, usa el servlet CabecerasHttpRequestServlet y la ruta de acceso
     En este ejemplo se mostraron los cabeceros del request
 
 La segunda parte usa el servlet ProductoXlsServlet y Producto, ProductoService, ProductoServiceImpl y 
-    va a mostrar como usar los cabeceros response y los va a exportar a otros archivos
+    va a mostrar como usar los cabeceros response y los va a exportar a otros archivos, ademas de configurar si se descarga o se abre
+    en otra página el contenido.
+
     NOTA: en ProductoXlsServlet se vio como poner dos rutas a un servlet
     
     Se va a exportar a Json pero para esto se requiere una dependencia en el pom 
         com.fasterxml.jackson.core:jackson-databind:2.12.3 esta version no estaba esta la 2.7.1-1
     Se va a crear el servlet ProductoJasonServlet
+
+    Para configurar si se descarga un archivo o se abre en el navegador se puede configurar el objeto response
+        resp.setContentType("text/html"); en este caso se abre en el navegador
+        resp.setContentType("application/json"); en este caso se descarga, supongo que es porque no esta asociada ninguna aplicación
+                con json, en el caso de resp.setContentType("application/vnd.ms-excel") supongo que es porque no hay una 
+                aplicación ms-excel, esto lo estoy probando en linux.
+        Esta configuracion se agrgega en el doGet o en el doPost
+     
+        En ProductoJasonServlet tambien se vio como hacer que el servlet reciba un json
+            Es un proceso largo para ver como se hace ir a ProductoJasonServlet.java
+
+En la tercera parte se va a ver response location y dispatcher forward estos son algunas
+    caracteristias como, recargar la págna automaticamente, redireccionar y dispatcher
+
+    Para esto se va a usar el servlet HoraActualizadaServlet, RedirigirServlet y DespacharServlet
+
+En la cuarta parte se van a ver códigos de estado de http
+
+    Para esto se uso LoginServlet
