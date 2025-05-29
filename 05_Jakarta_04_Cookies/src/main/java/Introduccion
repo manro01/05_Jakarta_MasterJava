@@ -1,0 +1,10 @@
+Las cookies son una manera para guardar valores, son datos del usuario que se 
+    almacenan en el navegador del lado del cliente. 
+Es información que queda persistente en el navegador (estos archivos se pueden elminiar
+    del anvegador)
+Las cookies son importantes porque guardan estados y esto no se hace con las peticiones http
+Gracias a ellas podemos tener sesiones de usuarios o recordad datos
+Las cookies se asocian a un dominio
+NO SE DEBEN USAR para guardan información importante como nombre se usuarios y contraseñas
+    tarjetas de creditos, pagos, etc, 
+Se guardan caracteres o String nada más. (pero se puede tranformar a json, ya que json es una String)
