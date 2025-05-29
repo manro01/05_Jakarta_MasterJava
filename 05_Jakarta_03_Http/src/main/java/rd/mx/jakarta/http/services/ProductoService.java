@@ -5,9 +5,11 @@
 package rd.mx.jakarta.http.services;
 
 import java.util.List;
+import java.util.Optional;
 import rd.mx.jakarta.http.models.Producto;
 
 public interface ProductoService 
 {
     List<Producto> listar();
+    Optional<Producto> buscarProducto(String nombre);
 }

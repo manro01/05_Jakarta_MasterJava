@@ -31,4 +31,9 @@ En la tercera parte se va a ver response location y dispatcher forward estos son
 
 En la cuarta parte se van a ver códigos de estado de http
 
-    Para esto se uso LoginServlet
+    Para esto se uso LoginServlet, login.html, buscar.html
+    Se modificaron ProductoService.java y ProdutoServiceImpl.java y BuscarProductoServlet.java
+        Para hacer que la busqueda del producto se haga en ProductoServiceImpl como se debe hacer
+        según los estandares, esta busqueda se hace en un servicio (service) y como impelemnta 
+        a la interface ProductoService esta tambien se modifico, BuscarProducto se modifico para 
+        que solo requiera la busqueda de un objeto de ProductoServiceImpl
